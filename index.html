@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -79,6 +80,8 @@ body{
   width:100%;
   border-radius:6px;
   cursor:pointer;
+  user-select:none;
+  -webkit-user-drag:none;
 }
 
 /* VISOR */
@@ -103,8 +106,10 @@ body{
 #viewer img{
   max-width:95%;
   max-height:95%;
-  transform:scale(.8);
+  transform:scale(.85);
   transition:.4s;
+  user-select:none;
+  -webkit-user-drag:none;
 }
 
 #viewer.active img{
@@ -174,21 +179,12 @@ document.querySelectorAll(".gallery img").forEach(img=>{
 viewer.addEventListener("click",()=>{
   viewer.classList.remove("active");
 });
+
+/* PROTECCIÓN BÁSICA */
+document.addEventListener("contextmenu", e => e.preventDefault());
+document.addEventListener("dragstart", e => e.preventDefault());
+document.addEventListener("selectstart", e => e.preventDefault());
 </script>
 
-<script>
-document.addEventListener("contextmenu", function(e) {
-  e.preventDefault();
-});
-</script>
-
-<script>
-document.addEventListener("touchstart", function(e) {
-  if (e.target.tagName === "IMG") {
-    e.preventDefault();
-  }
-}, { passive: false });
-</script>
-  
 </body>
 </html>
