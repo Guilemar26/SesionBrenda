@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -68,7 +67,7 @@ body{
   color:#ccc;
 }
 
-/* GALERIA */
+/* GALERÍA */
 .gallery{
   display:grid;
   grid-template-columns:repeat(auto-fill, minmax(140px,1fr));
@@ -80,8 +79,6 @@ body{
   width:100%;
   border-radius:6px;
   cursor:pointer;
-  user-select:none;
-  -webkit-user-drag:none;
 }
 
 /* VISOR */
@@ -108,8 +105,6 @@ body{
   max-height:95%;
   transform:scale(.85);
   transition:.4s;
-  user-select:none;
-  -webkit-user-drag:none;
 }
 
 #viewer.active img{
@@ -132,7 +127,7 @@ body{
   <p>Escanea, desliza y vuelve a sentirlo</p>
 </div>
 
-<!-- GALERIA -->
+<!-- GALERÍA -->
 <div class="gallery">
   <img src="fotos/foto1.jpg">
   <img src="fotos/foto2.jpg">
@@ -160,8 +155,8 @@ body{
 /* INTRO */
 setTimeout(()=>{
   const intro = document.getElementById("intro");
-  intro.style.transition="opacity 1s";
-  intro.style.opacity="0";
+  intro.style.transition = "opacity 1s";
+  intro.style.opacity = "0";
   setTimeout(()=>intro.remove(),1000);
 },3500);
 
@@ -179,11 +174,6 @@ document.querySelectorAll(".gallery img").forEach(img=>{
 viewer.addEventListener("click",()=>{
   viewer.classList.remove("active");
 });
-
-/* PROTECCIÓN BÁSICA */
-document.addEventListener("contextmenu", e => e.preventDefault());
-document.addEventListener("dragstart", e => e.preventDefault());
-document.addEventListener("selectstart", e => e.preventDefault());
 </script>
 
 </body>
